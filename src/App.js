@@ -1,10 +1,19 @@
-import React from 'react';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
+import React, { useEffect } from 'react';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 import useValueTodo from './useValueTodo';
 
 function App() {
-  const {todos, deleteTodo, addTodo} = useValueTodo([]);
+  const {todos, deleteTodo, addTodo, addLocalTodos, checkTodo} = useValueTodo([]);
+
+  useEffect(() => {
+    const raw = localStorage.getItem('todos') || [];
+    addLocalTodos(JSON.parse(raw));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className='container'>
@@ -18,7 +27,7 @@ function App() {
           }
         }
       />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} checkTodo={checkTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }

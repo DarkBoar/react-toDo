@@ -16,6 +16,7 @@ code {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 h1 {
   text-align: center;
@@ -26,7 +27,19 @@ ul {
   margin: 0;
   padding: 0;
 }
-input {
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  margin: 10px 0;
+}
+ul li p {
+  flex-grow: 1;
+  padding: 0;
+  margin: 0 25px;
+}
+.input-text {
   outline: none;
   background: transparent;
   width: 100%;
@@ -36,10 +49,44 @@ input {
   border: 1px solid #e3e3e3;
   margin-bottom: 25px;
   padding: 0 15px;
+  box-sizing: border-box;
+}
+.input-checkbox {
+  display: none;
 }
 .color__blue {
   color: #109cf1;
 }
 .color__blue:focus {
   border: 1px solid #109cf1;
+}
+.delete-btn {
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  background: url(./img/close.png) center / cover no-repeat;
+}
+.delete-btn:focus {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+}
+.checked {
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  background: url(./img/tick.png) center / cover no-repeat;
+}
+.disabled {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #109cf1;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+  }
 }

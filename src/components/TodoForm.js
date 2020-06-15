@@ -1,5 +1,5 @@
 import React from 'react';
-import useInputState from './useInputState';
+import useInputState from '../useInputState';
 
 const TodoForm = ({ saveTodo }) => {
   const { valueTodo, reset, onChange } = useInputState();
@@ -15,7 +15,7 @@ const TodoForm = ({ saveTodo }) => {
     >
       <input
         type='text'
-        className='color__blue'
+        className='color__blue input-text'
         value={valueTodo}
         onChange={onChange}
         placeholder='Введите задачу...'
