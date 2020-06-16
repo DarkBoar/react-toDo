@@ -33,6 +33,12 @@ ul li {
   align-items: center;
   font-size: 26px;
   margin: 10px 0;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+ul li:hover {
+  background: #f1f1f1;
 }
 ul li p {
   flex-grow: 1;
@@ -55,10 +61,10 @@ ul li p {
   display: none;
 }
 .color__blue {
-  color: #109cf1;
+  color: #000;
 }
 .color__blue:focus {
-  border: 1px solid #109cf1;
+  border: 1px solid #000;
 }
 .delete-btn {
   cursor: pointer;
@@ -81,9 +87,10 @@ ul li p {
   cursor: pointer;
   width: 32px;
   height: 32px;
-  border: 1px solid #109cf1;
+  border: 1px solid #000;
   border-radius: 50%;
 }
+
 
 @media screen and (max-width: 767px) {
   h1 {

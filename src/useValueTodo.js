@@ -21,6 +21,9 @@ export default (initialValue) => {
     },
     deleteTodo: (todoIndex) => {
       const newTodos = todos.filter(item => item.id !== todoIndex);
+      newTodos.forEach((item, index) => {
+        item.id = index + 1;
+      })
       setTodos(newTodos);
     }
   }

@@ -4,7 +4,7 @@ import TodoForm from './components/TodoForm';
 import useValueTodo from './useValueTodo';
 
 function App() {
-  const {todos, deleteTodo, addTodo, addLocalTodos, checkTodo} = useValueTodo([]);
+  const { todos, deleteTodo, addTodo, addLocalTodos, checkTodo } = useValueTodo([]);
 
   useEffect(() => {
     const raw = localStorage.getItem('todos') || [];
@@ -16,18 +16,20 @@ function App() {
   }, [todos]);
 
   return (
-    <div className='container'>
-      <h1 className='color__blue'>Список задач</h1>
-      <TodoForm saveTodo={(todoText) => {
-            const trimmedText = todoText.trim();
+    <div className='wrapper'>
+      <div className='container'>
+        <h1 className='color__blue'>Список задач</h1>
+        <TodoForm saveTodo={(todoText) => {
+          const trimmedText = todoText.trim();
 
-            if (trimmedText.length > 0) {
-              addTodo(trimmedText);
-            }
+          if (trimmedText.length > 0) {
+            addTodo(trimmedText);
           }
         }
-      />
-      <TodoList todos={todos} checkTodo={checkTodo} deleteTodo={deleteTodo} />
+        }
+        />
+        <TodoList todos={todos} checkTodo={checkTodo} deleteTodo={deleteTodo} />
+      </div>
     </div>
   );
 }
